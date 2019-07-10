@@ -30,8 +30,7 @@ class User{
         }
     }
 
-    play(money){       
-        //var _gameMachine = new GameMachine();
+    play(money){               
         console.log("Game started");
     }
 
@@ -59,12 +58,29 @@ class SuperAdmin extends User{
         SuperAdmin.o +=1;
     }
 
+    getMoneyCasino(number){
+        var sum = 0;
+        var casinoSum = this.namecasino.getMoney;
+        if (casinoSum > number){
+            sum = sum + this.namecasino.Machine[i].number;  //is not correct ?
+        }
+        return sum;
+    }
+
     getMoneyFromMachine(number){
-        
+        var suma = 0;
+        if (this.namecasino.Machine[i].length!=0){
+            suma += this.namecasino.Machine[i].getMoney();
+        }
+        return suma;
     }
 
     addMoneyMachine(number){
         
+    }
+
+    deleteGameMachine(num){
+
     }
 }
 SuperAdmin.o = 0;
@@ -73,7 +89,7 @@ SuperAdmin.o = 0;
 class Casino{
     constructor(name){
         this.name = name;
-        GameMachine this.machine = new GameMachine[];
+        this.Machine = [];  
     }
 
     createMachine(nameMachine){
@@ -98,9 +114,7 @@ class Casino{
         else {console.log("У казино не має автоматів")}
         return amount;
         // return this.Machine.getMoney();
-    }
-
-    
+    }  
 
     get getMachineCount(){
         return this.Machine.length;
